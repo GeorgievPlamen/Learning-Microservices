@@ -22,6 +22,7 @@ public class EventProcessor : IEventProcessor
         switch (eventType)
         {
             case EventType.PlatformPublished:
+                AddPlatform(message);
                 break;
             default:
                 break;
@@ -43,6 +44,7 @@ public class EventProcessor : IEventProcessor
                 {
                     repo.CreatePlatform(plat);
                     repo.SaveChanges();
+                    System.Console.WriteLine("Platform added!");
                 }
                 else
                 {
